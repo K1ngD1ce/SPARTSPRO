@@ -16,4 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
             svgAnimate.classList.remove('active')
         });
     });
+
+    function updateCardsVisibility() {
+        const cards = document.querySelectorAll('.recomendation_wrapper-product');
+        const isMobile = window.innerWidth <= 576;
+
+        cards.forEach((card, index) => {
+            if (isMobile && index >= 4) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = '';
+            }
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', updateCardsVisibility);
+    window.addEventListener('resize', updateCardsVisibility);
 })
